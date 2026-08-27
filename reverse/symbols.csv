@@ -77701,6 +77701,7 @@ g_bfmeClockCE,0x012F0898,Open-BFME5 the clock the deadline at 0x001B4980 reads
 g_bfmeCounterBZ,0x0134FAAC,Open-BFME5 the shared counter the bump at 0x009EB940 steps
 g_bfmeCurrentCB,0x012F7094,Open-BFME5 the current object the identity test at 0x00579280 compares against
 g_bfmeCurrentCU,0x012B501C,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies into
+g_bfmeCurrentCZ,0x01307214,Open-BFME5 the handle the getter at 0x007CC3F0 hands back
 g_bfmeDefaultBG,0x01336E50,Open-BFME5 the shared default the getters at 0x000EC5E0 and 0x000EC600 fall back on
 g_bfmeDefaultBP,0x01336E50,Open-BFME5 the shared default the getter at 0x003C63A0 falls back on
 g_bfmeDefaultBR,0x01075350,Open-BFME5 the default the float getter at 0x0043B230 falls back on
@@ -77745,6 +77746,7 @@ g_bfmeTableCV,0x010F77AC,Open-BFME5 the table the detach at 0x00479A30 stores
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
+g_bfmeVtableCZ,0x0112D210,Open-BFME5 the table the constructor at 0x0081E480 installs
 g_bfmeZeroCY,0x01075350,Open-BFME5 the constant the ratio at 0x0075F3D0 falls back to
 g_statsConnection,0x012D9038,Open-BFME5 IsStatsConnected global
 g_theNameKeyGenerator,0x012ED600,TheNameKeyGenerator
