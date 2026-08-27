@@ -77708,6 +77708,7 @@ g_bfmeDefaultCJ,0x01075334,Open-BFME5 the default the ratio at 0x000C7DE0 answer
 g_bfmeDirtyAE,0x012F33F8,Open-BFME5 the singleton the copy at 0x0049C4B0 marks dirty
 g_bfmeDirtyBG,0x012EF418,Open-BFME5 the global the setters at 0x0018F210, 0x0018F270 and 0x0018F2E0 mark before storing
 g_bfmeDirtyBH,0x012EF418,Open-BFME5 the global the marker at 0x0018ED60 ors its bits into
+g_bfmeDirtyCN,0x012EF418,Open-BFME5 the flag word the setter at 0x0018F290 raises
 g_bfmeDstCF,0x012B5158,Open-BFME5 the table the copy at 0x00421E50 writes
 g_bfmeFactorBW,0x01075D80,Open-BFME5 the factor the scale at 0x008793D0 multiplies by
 g_bfmeFirstCF,0x012B5628,Open-BFME5 the first factor the scale at 0x00458430 multiplies by
@@ -77734,6 +77735,7 @@ g_bfmeSrcCF,0x012B5100,Open-BFME5 the table the copy at 0x00421E50 reads
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
 g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
+g_bfmeTableCN,0x012ACB50,Open-BFME5 the table the lookup at 0x0018ED80 walks
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
