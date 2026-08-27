@@ -77714,6 +77714,7 @@ g_bfmeDefaultBR,0x01075350,Open-BFME5 the default the float getter at 0x0043B230
 g_bfmeDefaultBU,0x01075334,Open-BFME5 the default the float getter at 0x0079F3C0 starts from
 g_bfmeDefaultCJ,0x01075334,Open-BFME5 the default the ratio at 0x000C7DE0 answers when the divisor is zero
 g_bfmeDefaultCU,0x012B4FF8,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies from
+g_bfmeDefaultEG,0x01097114,Open-BFME5 the angle the test at 0x0045B850 falls back to
 g_bfmeDefaultRateCX,0x012F8234,Open-BFME5 the rate the setter at 0x006FD060 starts from
 g_bfmeDirtyAE,0x012F33F8,Open-BFME5 the singleton the copy at 0x0049C4B0 marks dirty
 g_bfmeDirtyBG,0x012EF418,Open-BFME5 the global the setters at 0x0018F210, 0x0018F270 and 0x0018F2E0 mark before storing
@@ -77727,6 +77728,7 @@ g_bfmeFallbackDB,0x013379BC,Open-BFME5 the value the bounded lookup at 0x008B8E5
 g_bfmeFifthEB,0x012D7194,Open-BFME5 the fifth word the global reset at 0x009336B0 sets
 g_bfmeFirstCF,0x012B5628,Open-BFME5 the first factor the scale at 0x00458430 multiplies by
 g_bfmeFirstEB,0x01346DDC,Open-BFME5 the first word the global reset at 0x009336B0 zeroes
+g_bfmeFirstEG,0x012B87AC,Open-BFME5 the first word the constructor at 0x005A7460 copies
 g_bfmeFlagDG,0x012ED624,Open-BFME5 the flag the apply at 0x00097360 copies
 g_bfmeFlagDMa,0x012B7D84,Open-BFME5 the first flag the quiet test at 0x00563940 reads
 g_bfmeFlagDMb,0x012F4AFD,Open-BFME5 the second flag the quiet test at 0x00563940 reads
@@ -77751,8 +77753,10 @@ g_bfmeOffsetDF,0x01098AD4,Open-BFME5 the offset the clamped difference at 0x001E
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
 g_bfmeProbeBT,0x012F9D0C,Open-BFME5 the volatile global the probe at 0x007D74B0 reads and throws away
 g_bfmeScaleBK,0x01075C70,Open-BFME5 the scale the difference at 0x001B48B0 multiplies by
+g_bfmeScaleEG,0x010F693C,Open-BFME5 the scale the angle at 0x0045B850 divides by its argument
 g_bfmeSecondCF,0x010F6394,Open-BFME5 the second factor the scale at 0x00458430 multiplies by
 g_bfmeSecondEB,0x01346DE0,Open-BFME5 the second word the global reset at 0x009336B0 zeroes
+g_bfmeSecondEG,0x012B87B0,Open-BFME5 the second word the constructor at 0x005A7460 copies
 g_bfmeSeedBX,0x0133F420,Open-BFME5 the seed the init at 0x0095C7F0 copies
 g_bfmeSingletonH,0x012F706C,Open-BFME5 the singleton the clear at 0x003C0DB0 hands each element to
 g_bfmeSingletonR,0x012F1464,Open-BFME5 the singleton the clear at 0x0038D000 tail-calls a virtual on
@@ -77782,6 +77786,7 @@ g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
 g_bfmeThirdEB,0x012D718C,Open-BFME5 the third word the global reset at 0x009336B0 sets
+g_bfmeThirdEG,0x012B87B4,Open-BFME5 the third word the constructor at 0x005A7460 copies
 g_bfmeValueDG,0x012ED620,Open-BFME5 the value the apply at 0x00097360 copies
 g_bfmeVtableCZ,0x0112D210,Open-BFME5 the table the constructor at 0x0081E480 installs
 g_bfmeVtableDQa,0x010F9AD8,Open-BFME5 the base table the constructor at 0x00490500 installs first
