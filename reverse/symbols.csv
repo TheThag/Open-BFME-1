@@ -77896,3 +77896,4 @@ g_windGlobalB,0x012B8E00,WindModuleInfo ctor global
 ?j_00040c32@Glo012F1024Item@@QAEXXZ,0x00040C32,"direct retail thunk called by ?bfmeEnter@Glo012F1024Item@@QAEXXZ"
 ?j_00036124@Glo012F1024Item@@QAEXXZ,0x00036124,"tail-called retail thunk called by ?bfmeEnter@Glo012F1024Item@@QAEXXZ"
 ?j_00010bcc@Glo012F1024Item@@QAEXXZ,0x00010BCC,"tail-called continuation of ?bfmeEnter@Glo012F1024Item@@QAEXXZ"
+?set@BfmeQuickMatchSlot@@QAEXABV1@@Z,0x00887C90,"string-member assignment used by ?bfmeAttach@BfmeQuickMatchScreenBase@@AAEXPAX@Z"
