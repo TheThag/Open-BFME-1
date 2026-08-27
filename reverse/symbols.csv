@@ -77708,6 +77708,7 @@ g_bfmeCounterBZ,0x0134FAAC,Open-BFME5 the shared counter the bump at 0x009EB940 
 g_bfmeCurrentCB,0x012F7094,Open-BFME5 the current object the identity test at 0x00579280 compares against
 g_bfmeCurrentCU,0x012B501C,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies into
 g_bfmeCurrentCZ,0x01307214,Open-BFME5 the handle the getter at 0x007CC3F0 hands back
+g_bfmeCurrentFA,0x012F1400,Open-BFME5 the current slot the store at 0x00746DA0 defaults to
 g_bfmeDefaultBG,0x01336E50,Open-BFME5 the shared default the getters at 0x000EC5E0 and 0x000EC600 fall back on
 g_bfmeDefaultBP,0x01336E50,Open-BFME5 the shared default the getter at 0x003C63A0 falls back on
 g_bfmeDefaultBR,0x01075350,Open-BFME5 the default the float getter at 0x0043B230 falls back on
@@ -77745,6 +77746,7 @@ g_bfmeHolderBP,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DD0 writ
 g_bfmeHolderBQ,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DF0 writes its second flag into
 g_bfmeHolderBS,0x012EF4CC,Open-BFME5 the singleton the clear at 0x002ED870 also clears a flag in
 g_bfmeHolderBU,0x013377D8,Open-BFME5 the singleton the test at 0x00892210 reads its field from
+g_bfmeIndexFA,0x012D5DC8,Open-BFME5 the index the seeder at 0x008D3AB0 clears
 g_bfmeLimitsDF,0x012F401C,Open-BFME5 the limits the band search at 0x00553DF0 walks
 g_bfmeListCK,0x012ED584,Open-BFME5 the list the search at 0x0007B5F0 walks
 g_bfmeListDQ,0x012F3350,Open-BFME5 the list the constructor at 0x00490500 pushes onto
@@ -77767,6 +77769,7 @@ g_bfmeStateDF,0x012F7048,Open-BFME5 the state the flag test at 0x005896B0 reads
 g_bfmeStateDO,0x012F1028,Open-BFME5 the state the readiness test at 0x004DF100 reads
 g_bfmeStateDS,0x012F4C5C,Open-BFME5 the state the mask add at 0x005B4260 reads
 g_bfmeStateEE,0x012ED5AC,Open-BFME5 the state the clamped read at 0x00752F00 takes its level from
+g_bfmeStateFA,0x013387E0,Open-BFME5 the state the seeder at 0x008D3AB0 fills
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
 g_bfmeSwitchDR,0x012F1024,Open-BFME5 the switch the offset at 0x00588F00 reads
@@ -77782,6 +77785,7 @@ g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableEJ,0x012AA068,Open-BFME5 the table the masked read at 0x000D3690 indexes
 g_bfmeTableENa,0x012A6670,Open-BFME5 the table the masked read at 0x001C6300 indexes
 g_bfmeTableENb,0x012A8D40,Open-BFME5 the table the masked read at 0x001C6390 indexes
+g_bfmeTableFA,0x012B4FC8,Open-BFME5 the table the store at 0x00746DA0 writes into
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
