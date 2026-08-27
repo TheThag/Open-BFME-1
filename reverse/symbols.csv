@@ -77719,6 +77719,7 @@ g_bfmeHolderBP,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DD0 writ
 g_bfmeHolderBQ,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DF0 writes its second flag into
 g_bfmeHolderBS,0x012EF4CC,Open-BFME5 the singleton the clear at 0x002ED870 also clears a flag in
 g_bfmeHolderBU,0x013377D8,Open-BFME5 the singleton the test at 0x00892210 reads its field from
+g_bfmeListCK,0x012ED584,Open-BFME5 the list the search at 0x0007B5F0 walks
 g_bfmeManagerP,0x012F0898,Open-BFME5 the manager the clear at 0x00371120 hands each element to
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
 g_bfmeProbeBT,0x012F9D0C,Open-BFME5 the volatile global the probe at 0x007D74B0 reads and throws away
