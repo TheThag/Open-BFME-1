@@ -77697,6 +77697,7 @@ g_bfmeClockBK,0x012F0898,Open-BFME5 the singleton the comparison at 0x001E1A10 r
 g_bfmeClockBL,0x012F0898,Open-BFME5 the clock the deadlines at 0x001BFF50 and 0x001E19F0 read
 g_bfmeClockBN,0x012F0898,Open-BFME5 the clock the bodies at 0x0016D560 and 0x001E1980 read
 g_bfmeClockBP,0x012F0898,Open-BFME5 the clock the reset at 0x002B6330 stamps from
+g_bfmeCounterBZ,0x0134FAAC,Open-BFME5 the shared counter the bump at 0x009EB940 steps
 g_bfmeDefaultBG,0x01336E50,Open-BFME5 the shared default the getters at 0x000EC5E0 and 0x000EC600 fall back on
 g_bfmeDefaultBP,0x01336E50,Open-BFME5 the shared default the getter at 0x003C63A0 falls back on
 g_bfmeDefaultBR,0x01075350,Open-BFME5 the default the float getter at 0x0043B230 falls back on
@@ -77721,6 +77722,7 @@ g_bfmeSingletonH,0x012F706C,Open-BFME5 the singleton the clear at 0x003C0DB0 han
 g_bfmeSingletonR,0x012F1464,Open-BFME5 the singleton the clear at 0x0038D000 tail-calls a virtual on
 g_bfmeSinkAM,0x012F706C,Open-BFME5 the singleton the remove at 0x003BEBA0 tells before taking the entry out
 g_bfmeSinkY,0x012ED668,Open-BFME5 the singleton the clear at 0x00613CC0 hands each element to
+g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_statsConnection,0x012D9038,Open-BFME5 IsStatsConnected global
