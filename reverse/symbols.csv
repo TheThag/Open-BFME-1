@@ -77716,6 +77716,7 @@ g_bfmeDefaultBU,0x01075334,Open-BFME5 the default the float getter at 0x0079F3C0
 g_bfmeDefaultCJ,0x01075334,Open-BFME5 the default the ratio at 0x000C7DE0 answers when the divisor is zero
 g_bfmeDefaultCU,0x012B4FF8,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies from
 g_bfmeDefaultEG,0x01097114,Open-BFME5 the angle the test at 0x0045B850 falls back to
+g_bfmeDefaultFE,0x012BC0C8,Open-BFME5 the default the reset at 0x007CCD90 points every slot at
 g_bfmeDefaultRateCX,0x012F8234,Open-BFME5 the rate the setter at 0x006FD060 starts from
 g_bfmeDirtyAE,0x012F33F8,Open-BFME5 the singleton the copy at 0x0049C4B0 marks dirty
 g_bfmeDirtyBG,0x012EF418,Open-BFME5 the global the setters at 0x0018F210, 0x0018F270 and 0x0018F2E0 mark before storing
@@ -77736,6 +77737,7 @@ g_bfmeFlagDMa,0x012B7D84,Open-BFME5 the first flag the quiet test at 0x00563940 
 g_bfmeFlagDMb,0x012F4AFD,Open-BFME5 the second flag the quiet test at 0x00563940 reads
 g_bfmeFlagDMc,0x012F4AFE,Open-BFME5 the third flag the quiet test at 0x00563940 reads
 g_bfmeFlagEC,0x012F9DB8,Open-BFME5 the flag the setter at 0x0073D850 writes
+g_bfmeFlagsFE,0x012F9C5C,Open-BFME5 the flags the reset at 0x007CCD90 raises
 g_bfmeFourthEB,0x012D7190,Open-BFME5 the fourth word the global reset at 0x009336B0 sets
 g_bfmeFourthFD,0x013549E0,Open-BFME5 the fourth block the clear at 0x00875F90 zeroes
 g_bfmeFullBX,0x012D71AC,Open-BFME5 the size the setter at 0x00938A50 writes
@@ -77755,6 +77757,7 @@ g_bfmeListDQ,0x012F3350,Open-BFME5 the list the constructor at 0x00490500 pushes
 g_bfmeManagerP,0x012F0898,Open-BFME5 the manager the clear at 0x00371120 hands each element to
 g_bfmeOffsetDF,0x01098AD4,Open-BFME5 the offset the clamped difference at 0x001E1950 subtracts
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
+g_bfmePointersFE,0x012F9CA4,Open-BFME5 the pointers the reset at 0x007CCD90 sets
 g_bfmeProbeBT,0x012F9D0C,Open-BFME5 the volatile global the probe at 0x007D74B0 reads and throws away
 g_bfmeScaleBK,0x01075C70,Open-BFME5 the scale the difference at 0x001B48B0 multiplies by
 g_bfmeScaleEG,0x010F693C,Open-BFME5 the scale the angle at 0x0045B850 divides by its argument
