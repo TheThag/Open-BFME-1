@@ -77776,6 +77776,8 @@ g_bfmeTableDJc,0x012AD6B0,Open-BFME5 the table the masked read at 0x001C3FF0 ind
 g_bfmeTableDU,0x012F9D28,Open-BFME5 the handle table the getter at 0x007C34A0 indexes
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableEJ,0x012AA068,Open-BFME5 the table the masked read at 0x000D3690 indexes
+g_bfmeTableENa,0x012A6670,Open-BFME5 the table the masked read at 0x001C6300 indexes
+g_bfmeTableENb,0x012A8D40,Open-BFME5 the table the masked read at 0x001C6390 indexes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
