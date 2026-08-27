@@ -77762,6 +77762,7 @@ g_bfmeSrcCF,0x012B5100,Open-BFME5 the table the copy at 0x00421E50 reads
 g_bfmeStateDF,0x012F7048,Open-BFME5 the state the flag test at 0x005896B0 reads
 g_bfmeStateDO,0x012F1028,Open-BFME5 the state the readiness test at 0x004DF100 reads
 g_bfmeStateDS,0x012F4C5C,Open-BFME5 the state the mask add at 0x005B4260 reads
+g_bfmeStateEE,0x012ED5AC,Open-BFME5 the state the clamped read at 0x00752F00 takes its level from
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
 g_bfmeSwitchDR,0x012F1024,Open-BFME5 the switch the offset at 0x00588F00 reads
