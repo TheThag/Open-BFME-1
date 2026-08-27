@@ -77841,3 +77841,4 @@ g_windGlobalB,0x012B8E00,WindModuleInfo ctor global
 ?BfmeTimedOpInputLocked@@3HA,0x012ED530,timed-operation input lock state used by GameEngine::_bfme_updateClientSubsystems
 ??1LargeGroupAudioKeyMap@@QAE@XZ,0x000181C9,Open-BFME5 ILT to body 0x003D4490 called on collector temporaries and the class member at +0x0C
 ?bfmeUpdate@BfmeCellFC@@QAEXH_N@Z,0x00881BE0,Open-BFME5 semantic identity for exact address-derived cell update body at 0x00881BE0
+?bfmeApplyCircle@Gen_008812D0@@QAEXHHHH_N@Z,0x00881B90,Open-BFME5 semantic identity for the exact TaintManager grid circle-update wrapper already claimed under an address-derived class
