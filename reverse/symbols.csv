@@ -77748,6 +77748,7 @@ g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 r
 g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
 g_bfmeTableCN,0x012ACB50,Open-BFME5 the table the lookup at 0x0018ED80 walks
 g_bfmeTableCV,0x010F77AC,Open-BFME5 the table the detach at 0x00479A30 stores
+g_bfmeTableDH,0x012C7128,Open-BFME5 the byte table the checksums at 0x001C0AA0 read through
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
