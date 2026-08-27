@@ -77727,8 +77727,10 @@ g_bfmeHolderBP,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DD0 writ
 g_bfmeHolderBQ,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DF0 writes its second flag into
 g_bfmeHolderBS,0x012EF4CC,Open-BFME5 the singleton the clear at 0x002ED870 also clears a flag in
 g_bfmeHolderBU,0x013377D8,Open-BFME5 the singleton the test at 0x00892210 reads its field from
+g_bfmeLimitsDF,0x012F401C,Open-BFME5 the limits the band search at 0x00553DF0 walks
 g_bfmeListCK,0x012ED584,Open-BFME5 the list the search at 0x0007B5F0 walks
 g_bfmeManagerP,0x012F0898,Open-BFME5 the manager the clear at 0x00371120 hands each element to
+g_bfmeOffsetDF,0x01098AD4,Open-BFME5 the offset the clamped difference at 0x001E1950 subtracts
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
 g_bfmeProbeBT,0x012F9D0C,Open-BFME5 the volatile global the probe at 0x007D74B0 reads and throws away
 g_bfmeScaleBK,0x01075C70,Open-BFME5 the scale the difference at 0x001B48B0 multiplies by
@@ -77739,6 +77741,7 @@ g_bfmeSingletonR,0x012F1464,Open-BFME5 the singleton the clear at 0x0038D000 tai
 g_bfmeSinkAM,0x012F706C,Open-BFME5 the singleton the remove at 0x003BEBA0 tells before taking the entry out
 g_bfmeSinkY,0x012ED668,Open-BFME5 the singleton the clear at 0x00613CC0 hands each element to
 g_bfmeSrcCF,0x012B5100,Open-BFME5 the table the copy at 0x00421E50 reads
+g_bfmeStateDF,0x012F7048,Open-BFME5 the state the flag test at 0x005896B0 reads
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
 g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
