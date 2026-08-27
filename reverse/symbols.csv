@@ -77705,6 +77705,7 @@ g_bfmeDirtyBG,0x012EF418,Open-BFME5 the global the setters at 0x0018F210, 0x0018
 g_bfmeDirtyBH,0x012EF418,Open-BFME5 the global the marker at 0x0018ED60 ors its bits into
 g_bfmeHolderBP,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DD0 writes its flag into
 g_bfmeHolderBQ,0x012F1464,Open-BFME5 the singleton the setter at 0x002F0DF0 writes its second flag into
+g_bfmeHolderBS,0x012EF4CC,Open-BFME5 the singleton the clear at 0x002ED870 also clears a flag in
 g_bfmeManagerP,0x012F0898,Open-BFME5 the manager the clear at 0x00371120 hands each element to
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
 g_bfmeScaleBK,0x01075C70,Open-BFME5 the scale the difference at 0x001B48B0 multiplies by
