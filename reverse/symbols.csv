@@ -77837,3 +77837,4 @@ g_windGlobalB,0x012B8E00,WindModuleInfo ctor global
 ?BfmeSavedClientFrame@@3HA,0x012ED508,saved GameClient frame used by GameEngine::_bfme_updateClientSubsystems and the execute pacing gate
 ?TheAudioClientUpdate@@3PAVClientSubsystem@@A,0x012ED668,Audio subsystem pointer used by GameEngine::_bfme_updateClientSubsystems
 ?BfmeTimedOpInputLocked@@3HA,0x012ED530,timed-operation input lock state used by GameEngine::_bfme_updateClientSubsystems
+??1LargeGroupAudioKeyMap@@QAE@XZ,0x000181C9,Open-BFME5 ILT to body 0x003D4490 called on collector temporaries and the class member at +0x0C
