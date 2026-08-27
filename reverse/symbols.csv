@@ -77716,6 +77716,7 @@ g_bfmeDirtyCN,0x012EF418,Open-BFME5 the flag word the setter at 0x0018F290 raise
 g_bfmeDirtyCU,0x012F13FC,Open-BFME5 the flag the reset at 0x00421DE0 raises
 g_bfmeDstCF,0x012B5158,Open-BFME5 the table the copy at 0x00421E50 writes
 g_bfmeFactorBW,0x01075D80,Open-BFME5 the factor the scale at 0x008793D0 multiplies by
+g_bfmeFallbackDB,0x013379BC,Open-BFME5 the value the bounded lookup at 0x008B8E50 falls back to
 g_bfmeFirstCF,0x012B5628,Open-BFME5 the first factor the scale at 0x00458430 multiplies by
 g_bfmeFullBX,0x012D71AC,Open-BFME5 the size the setter at 0x00938A50 writes
 g_bfmeGameCW,0x012F706C,Open-BFME5 the singleton the flag test at 0x00609320 reads
