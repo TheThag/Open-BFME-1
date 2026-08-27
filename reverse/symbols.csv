@@ -77718,6 +77718,7 @@ g_bfmeDstCF,0x012B5158,Open-BFME5 the table the copy at 0x00421E50 writes
 g_bfmeFactorBW,0x01075D80,Open-BFME5 the factor the scale at 0x008793D0 multiplies by
 g_bfmeFallbackDB,0x013379BC,Open-BFME5 the value the bounded lookup at 0x008B8E50 falls back to
 g_bfmeFirstCF,0x012B5628,Open-BFME5 the first factor the scale at 0x00458430 multiplies by
+g_bfmeFlagDG,0x012ED624,Open-BFME5 the flag the apply at 0x00097360 copies
 g_bfmeFullBX,0x012D71AC,Open-BFME5 the size the setter at 0x00938A50 writes
 g_bfmeGameCW,0x012F706C,Open-BFME5 the singleton the flag test at 0x00609320 reads
 g_bfmeGateBT,0x012F9D04,Open-BFME5 the gate the probe at 0x007D74B0 tests
@@ -77749,7 +77750,9 @@ g_bfmeTableCN,0x012ACB50,Open-BFME5 the table the lookup at 0x0018ED80 walks
 g_bfmeTableCV,0x010F77AC,Open-BFME5 the table the detach at 0x00479A30 stores
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
+g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
+g_bfmeValueDG,0x012ED620,Open-BFME5 the value the apply at 0x00097360 copies
 g_bfmeVtableCZ,0x0112D210,Open-BFME5 the table the constructor at 0x0081E480 installs
 g_bfmeZeroCY,0x01075350,Open-BFME5 the constant the ratio at 0x0075F3D0 falls back to
 g_statsConnection,0x012D9038,Open-BFME5 IsStatsConnected global
