@@ -77695,12 +77695,15 @@ g_bfmeArenaEnd,0x013378D8,Open-BFME5 the arena limit the initialiser at 0x008971
 g_bfmeArenaStart,0x013378D0,Open-BFME5 the arena base the initialiser at 0x00897120 sets
 g_bfmeBaseDR,0x012ED5C8,Open-BFME5 the base the offset at 0x00588F00 adds
 g_bfmeBaseDS,0x012ED5C8,Open-BFME5 the base the limit at 0x003BCB70 reads
+g_bfmeBlocksEA,0x01346E6C,Open-BFME5 the block total the accounting at 0x00937280 adds to
+g_bfmeBytesEA,0x01346E58,Open-BFME5 the byte total the accounting at 0x00937280 adds to
 g_bfmeClockBK,0x012F0898,Open-BFME5 the singleton the comparison at 0x001E1A10 reads its stamp from
 g_bfmeClockBL,0x012F0898,Open-BFME5 the clock the deadlines at 0x001BFF50 and 0x001E19F0 read
 g_bfmeClockBN,0x012F0898,Open-BFME5 the clock the bodies at 0x0016D560 and 0x001E1980 read
 g_bfmeClockBP,0x012F0898,Open-BFME5 the clock the reset at 0x002B6330 stamps from
 g_bfmeClockCE,0x012F0898,Open-BFME5 the clock the deadline at 0x001B4980 reads
 g_bfmeCountDU,0x013379A4,Open-BFME5 the count the reset at 0x00897190 zeroes
+g_bfmeCountEA,0x01346E68,Open-BFME5 the count the accounting at 0x00937280 steps
 g_bfmeCounterBZ,0x0134FAAC,Open-BFME5 the shared counter the bump at 0x009EB940 steps
 g_bfmeCurrentCB,0x012F7094,Open-BFME5 the current object the identity test at 0x00579280 compares against
 g_bfmeCurrentCU,0x012B501C,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies into
