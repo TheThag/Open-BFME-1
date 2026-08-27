@@ -77693,6 +77693,7 @@ g_NAMEKEY_empty_string,0x0107388B,NAMEKEY empty string literal
 g_bfmeArenaCursor,0x013378D4,Open-BFME5 the arena cursor the initialiser at 0x00897120 sets
 g_bfmeArenaEnd,0x013378D8,Open-BFME5 the arena limit the initialiser at 0x00897120 sets
 g_bfmeArenaStart,0x013378D0,Open-BFME5 the arena base the initialiser at 0x00897120 sets
+g_bfmeBaseDR,0x012ED5C8,Open-BFME5 the base the offset at 0x00588F00 adds
 g_bfmeClockBK,0x012F0898,Open-BFME5 the singleton the comparison at 0x001E1A10 reads its stamp from
 g_bfmeClockBL,0x012F0898,Open-BFME5 the clock the deadlines at 0x001BFF50 and 0x001E19F0 read
 g_bfmeClockBN,0x012F0898,Open-BFME5 the clock the bodies at 0x0016D560 and 0x001E1980 read
@@ -77733,6 +77734,7 @@ g_bfmeHolderBS,0x012EF4CC,Open-BFME5 the singleton the clear at 0x002ED870 also 
 g_bfmeHolderBU,0x013377D8,Open-BFME5 the singleton the test at 0x00892210 reads its field from
 g_bfmeLimitsDF,0x012F401C,Open-BFME5 the limits the band search at 0x00553DF0 walks
 g_bfmeListCK,0x012ED584,Open-BFME5 the list the search at 0x0007B5F0 walks
+g_bfmeListDQ,0x012F3350,Open-BFME5 the list the constructor at 0x00490500 pushes onto
 g_bfmeManagerP,0x012F0898,Open-BFME5 the manager the clear at 0x00371120 hands each element to
 g_bfmeOffsetDF,0x01098AD4,Open-BFME5 the offset the clamped difference at 0x001E1950 subtracts
 g_bfmeOwnerBR,0x012F060C,Open-BFME5 the singleton the mark at 0x002E2B50 reaches its target through
@@ -77749,6 +77751,7 @@ g_bfmeStateDF,0x012F7048,Open-BFME5 the state the flag test at 0x005896B0 reads
 g_bfmeStateDO,0x012F1028,Open-BFME5 the state the readiness test at 0x004DF100 reads
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
+g_bfmeSwitchDR,0x012F1024,Open-BFME5 the switch the offset at 0x00588F00 reads
 g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
 g_bfmeTableCN,0x012ACB50,Open-BFME5 the table the lookup at 0x0018ED80 walks
 g_bfmeTableCV,0x010F77AC,Open-BFME5 the table the detach at 0x00479A30 stores
@@ -77762,6 +77765,8 @@ g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes i
 g_bfmeThingCB,0x012F49D0,Open-BFME5 the singleton the test at 0x00521E30 reads its field from
 g_bfmeValueDG,0x012ED620,Open-BFME5 the value the apply at 0x00097360 copies
 g_bfmeVtableCZ,0x0112D210,Open-BFME5 the table the constructor at 0x0081E480 installs
+g_bfmeVtableDQa,0x010F9AD8,Open-BFME5 the base table the constructor at 0x00490500 installs first
+g_bfmeVtableDQb,0x010F9B0C,Open-BFME5 the derived table the constructor at 0x00490500 installs second
 g_bfmeZeroCY,0x01075350,Open-BFME5 the constant the ratio at 0x0075F3D0 falls back to
 g_statsConnection,0x012D9038,Open-BFME5 IsStatsConnected global
 g_theNameKeyGenerator,0x012ED600,TheNameKeyGenerator
