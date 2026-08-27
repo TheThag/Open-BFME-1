@@ -77707,6 +77707,7 @@ g_bfmeDefaultBR,0x01075350,Open-BFME5 the default the float getter at 0x0043B230
 g_bfmeDefaultBU,0x01075334,Open-BFME5 the default the float getter at 0x0079F3C0 starts from
 g_bfmeDefaultCJ,0x01075334,Open-BFME5 the default the ratio at 0x000C7DE0 answers when the divisor is zero
 g_bfmeDefaultCU,0x012B4FF8,Open-BFME5 the thirty-six byte block the reset at 0x00421DE0 copies from
+g_bfmeDefaultRateCX,0x012F8234,Open-BFME5 the rate the setter at 0x006FD060 starts from
 g_bfmeDirtyAE,0x012F33F8,Open-BFME5 the singleton the copy at 0x0049C4B0 marks dirty
 g_bfmeDirtyBG,0x012EF418,Open-BFME5 the global the setters at 0x0018F210, 0x0018F270 and 0x0018F2E0 mark before storing
 g_bfmeDirtyBH,0x012EF418,Open-BFME5 the global the marker at 0x0018ED60 ors its bits into
