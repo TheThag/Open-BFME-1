@@ -77694,6 +77694,7 @@ g_bfmeArenaCursor,0x013378D4,Open-BFME5 the arena cursor the initialiser at 0x00
 g_bfmeArenaEnd,0x013378D8,Open-BFME5 the arena limit the initialiser at 0x00897120 sets
 g_bfmeArenaStart,0x013378D0,Open-BFME5 the arena base the initialiser at 0x00897120 sets
 g_bfmeBaseDR,0x012ED5C8,Open-BFME5 the base the offset at 0x00588F00 adds
+g_bfmeBaseDS,0x012ED5C8,Open-BFME5 the base the limit at 0x003BCB70 reads
 g_bfmeClockBK,0x012F0898,Open-BFME5 the singleton the comparison at 0x001E1A10 reads its stamp from
 g_bfmeClockBL,0x012F0898,Open-BFME5 the clock the deadlines at 0x001BFF50 and 0x001E19F0 read
 g_bfmeClockBN,0x012F0898,Open-BFME5 the clock the bodies at 0x0016D560 and 0x001E1980 read
@@ -77749,6 +77750,7 @@ g_bfmeSinkY,0x012ED668,Open-BFME5 the singleton the clear at 0x00613CC0 hands ea
 g_bfmeSrcCF,0x012B5100,Open-BFME5 the table the copy at 0x00421E50 reads
 g_bfmeStateDF,0x012F7048,Open-BFME5 the state the flag test at 0x005896B0 reads
 g_bfmeStateDO,0x012F1028,Open-BFME5 the state the readiness test at 0x004DF100 reads
+g_bfmeStateDS,0x012F4C5C,Open-BFME5 the state the mask add at 0x005B4260 reads
 g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeSwitchCJ,0x012F0898,Open-BFME5 the switch the accumulators at 0x000E8AF0 read
 g_bfmeSwitchDR,0x012F1024,Open-BFME5 the switch the offset at 0x00588F00 reads
