@@ -77731,6 +77731,7 @@ g_bfmeFlagDG,0x012ED624,Open-BFME5 the flag the apply at 0x00097360 copies
 g_bfmeFlagDMa,0x012B7D84,Open-BFME5 the first flag the quiet test at 0x00563940 reads
 g_bfmeFlagDMb,0x012F4AFD,Open-BFME5 the second flag the quiet test at 0x00563940 reads
 g_bfmeFlagDMc,0x012F4AFE,Open-BFME5 the third flag the quiet test at 0x00563940 reads
+g_bfmeFlagEC,0x012F9DB8,Open-BFME5 the flag the setter at 0x0073D850 writes
 g_bfmeFourthEB,0x012D7190,Open-BFME5 the fourth word the global reset at 0x009336B0 sets
 g_bfmeFullBX,0x012D71AC,Open-BFME5 the size the setter at 0x00938A50 writes
 g_bfmeGameCW,0x012F706C,Open-BFME5 the singleton the flag test at 0x00609320 reads
