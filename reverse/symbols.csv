@@ -77729,6 +77729,7 @@ g_bfmeSingletonR,0x012F1464,Open-BFME5 the singleton the clear at 0x0038D000 tai
 g_bfmeSinkAM,0x012F706C,Open-BFME5 the singleton the remove at 0x003BEBA0 tells before taking the entry out
 g_bfmeSinkY,0x012ED668,Open-BFME5 the singleton the clear at 0x00613CC0 hands each element to
 g_bfmeSrcCF,0x012B5100,Open-BFME5 the table the copy at 0x00421E50 reads
+g_bfmeStepCG,0x010F1BC8,Open-BFME5 the step the pair at 0x004223D0 subtracts
 g_bfmeTableBZ,0x01141708,Open-BFME5 the table the loader at 0x009A65E0 copies
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
