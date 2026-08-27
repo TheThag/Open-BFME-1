@@ -77751,6 +77751,7 @@ g_bfmeTableCV,0x010F77AC,Open-BFME5 the table the detach at 0x00479A30 stores
 g_bfmeTableDH,0x012C7128,Open-BFME5 the byte table the checksums at 0x001C0AA0 read through
 g_bfmeTableDJa,0x012A9200,Open-BFME5 the table the masked read at 0x001C3F80 indexes
 g_bfmeTableDJb,0x012A68D8,Open-BFME5 the table the masked read at 0x0020EC30 indexes
+g_bfmeTableDJc,0x012AD6B0,Open-BFME5 the table the masked read at 0x001C3FF0 indexes
 g_bfmeTableDstBQ,0x012B50A0,Open-BFME5 the table the copy at 0x00421E20 writes
 g_bfmeTableSrcBQ,0x012B5040,Open-BFME5 the table the copy at 0x00421E20 reads
 g_bfmeTargetDG,0x012ED5C8,Open-BFME5 the target the apply at 0x00097360 writes into
