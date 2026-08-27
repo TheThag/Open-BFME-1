@@ -77719,6 +77719,9 @@ g_bfmeFactorBW,0x01075D80,Open-BFME5 the factor the scale at 0x008793D0 multipli
 g_bfmeFallbackDB,0x013379BC,Open-BFME5 the value the bounded lookup at 0x008B8E50 falls back to
 g_bfmeFirstCF,0x012B5628,Open-BFME5 the first factor the scale at 0x00458430 multiplies by
 g_bfmeFlagDG,0x012ED624,Open-BFME5 the flag the apply at 0x00097360 copies
+g_bfmeFlagDMa,0x012B7D84,Open-BFME5 the first flag the quiet test at 0x00563940 reads
+g_bfmeFlagDMb,0x012F4AFD,Open-BFME5 the second flag the quiet test at 0x00563940 reads
+g_bfmeFlagDMc,0x012F4AFE,Open-BFME5 the third flag the quiet test at 0x00563940 reads
 g_bfmeFullBX,0x012D71AC,Open-BFME5 the size the setter at 0x00938A50 writes
 g_bfmeGameCW,0x012F706C,Open-BFME5 the singleton the flag test at 0x00609320 reads
 g_bfmeGateBT,0x012F9D04,Open-BFME5 the gate the probe at 0x007D74B0 tests
