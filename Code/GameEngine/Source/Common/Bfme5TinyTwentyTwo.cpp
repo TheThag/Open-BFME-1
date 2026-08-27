@@ -1,7 +1,6 @@
 // Five more: a planar distance, a search over a global table, a flagged
-// three-word copy, and twins of
-// the deadline and the bit test that landed earlier at other offsets.
-
+// three-word copy, and twins of the deadline and the bit test that landed
+// earlier at other offsets.
 class BfmeSpotCN
 {
 public:
