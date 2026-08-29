@@ -2081,6 +2081,8 @@ name,address,notes
 ??0BfmeCreated_00957FB0@@QAE@PAVGen_00957FB0@@@Z,0x00957F40,Open-BFME5 the constructor the make-and-return body at 0x00957FB0 runs on its fresh block
 ??0BfmeCreated_0097D920@@QAE@PAVGen_0097D920@@@Z,0x0097D850,Open-BFME5 the constructor the make-and-return body at 0x0097D920 runs on its fresh block
 ??0BfmeCtorBaseD@@QAE@XZ,0x009A1A30,Open-BFME5 the base constructor the based list constructor at 0x000FDA80 runs first
+??1BfmeCtorBaseD@@UAE@XZ,0x009A1A40,Open-BFME5 the base destructor called by Gen_000FDA80 at 0x000FDB40
+??1BfmeCtorListD@@QAE@XZ,0x000FD4A0,Open-BFME5 the list member destructor called by Gen_000FDA80 at 0x000FDB40
 ??0BfmeDelayedLuaEvent@@QAE@XZ,0x0003A1C5,Open-BFME5 ILT the DelayedLuaEventList constructor at 0x000EDBB0 hands to the EH vector constructor iterator as the element constructor; DIR32 sites are masked by the byte gate so this records the address
 ??0BfmeLegendString@@QAE@ABU0@@Z,0x00887B60,SubsystemLegend.cpp AsciiString stand-in copy ctor (StringBase<char> copy ctor body)
 ??0BfmeLegendString@@QAE@PBD@Z,0x00888BC0,SubsystemLegend.cpp AsciiString stand-in ctor from const char*
