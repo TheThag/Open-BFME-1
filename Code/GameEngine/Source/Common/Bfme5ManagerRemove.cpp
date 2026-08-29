@@ -1,84 +1,66 @@
-// Remove an owned entry from every manager bucket that currently contains
-// it, then notify the global sink through its virtual removal slot.
+// cl: /DNDEBUG /MD /EHsc
 
 class BfmeOwnedP
 {
 public:
-	virtual ~BfmeOwnedP(void);				// slot +0x00
+    virtual ~BfmeOwnedP(void);
+};
+
+class BfmeManagerBucket
+{
+public:
+    char m_bfmeHead[0x88];
+    BfmeManagerBucket *m_bfmeNext;
 };
 
 class BfmeManagerP
 {
 public:
-	void bfmeRemove(BfmeOwnedP *element);
+    void bfmeRemove(BfmeOwnedP *element);
 
 private:
-	char m_bfmeHead[0xA8];
-	void *m_bfmeFirst;					// +0xA8
+    char m_bfmeHead[0xA8];
+    BfmeManagerBucket *m_bfmeFirst;
 };
 
-// The retail global at 0x012ED668 is dispatched through slot +0x168.
-// Its concrete type is shared by unrelated subsystem views in the recovered
-// sources, so the byte-stable body emits the global load directly.
+// The incremental-link thunk is a member helper with the retail call shape
+// (bucket in ECX, element on the stack), despite its generated no-argument
+// identity.
+extern void j_0000b325(void);
+struct BfmeBucketRemoveThunk
+{
+    void remove(BfmeOwnedP *element);
+};
+
+// The global at 0x012ED668 is shared by several recovered subsystem views.
+// Slot 0x168 is the notification entry used by this manager.
+struct BfmeNotifyThunk
+{
+    void notify(BfmeOwnedP *element);
+};
+
+static __forceinline void bfmeNotify(void *sink, BfmeOwnedP *element)
+{
+    void **vtable = *(void ***)sink;
+    typedef void (BfmeNotifyThunk::*NotifyFn)(BfmeOwnedP *);
+    union { void *asVoid; NotifyFn asMember; } fnCast;
+    fnCast.asVoid = vtable[0x168 / 4];
+    (reinterpret_cast<BfmeNotifyThunk *>(sink)->*fnCast.asMember)(element);
+}
 
 // ?bfmeRemove@BfmeManagerP@@QAEXPAVBfmeOwnedP@@@Z
-__declspec(naked) void BfmeManagerP::bfmeRemove(BfmeOwnedP *element)
-	// retail body 0x003854C0
+void BfmeManagerP::bfmeRemove(BfmeOwnedP *element)
 {
-	__asm {
-		__emit 0x56                 // push esi
-		__emit 0x8b                 // mov esi,[ecx+0a8]
-		__emit 0xb1
-		__emit 0xa8
-		__emit 0x00
-		__emit 0x00
-		__emit 0x00
-		__emit 0x85                 // test esi,esi
-		__emit 0xf6
-		__emit 0x57                 // push edi
-		__emit 0x8b                 // mov edi,[esp+0c]
-		__emit 0x7c
-		__emit 0x24
-		__emit 0x0c
-		__emit 0x74                 // je notify
-		__emit 0x12
-		__emit 0x57                 // push edi
-		__emit 0x8b                 // mov ecx,esi
-		__emit 0xce
-		__emit 0xe8                 // call the per-entry removal thunk
-		__emit 0x4d
-		__emit 0x5e
-		__emit 0xc8
-		__emit 0xff
-		__emit 0x8b                 // mov esi,[esi+088]
-		__emit 0xb6
-		__emit 0x88
-		__emit 0x00
-		__emit 0x00
-		__emit 0x00
-		__emit 0x85                 // test esi,esi
-		__emit 0xf6
-		__emit 0x75                 // jne loop
-		__emit 0xee
-		__emit 0x8b                 // mov ecx,[0x012ed668]
-		__emit 0x0d
-		__emit 0x68
-		__emit 0xd6
-		__emit 0x2e
-		__emit 0x01
-		__emit 0x8b                 // mov eax,[ecx]
-		__emit 0x01
-		__emit 0x57                 // push edi
-		__emit 0xff                 // call [eax+168]
-		__emit 0x90
-		__emit 0x68
-		__emit 0x01
-		__emit 0x00
-		__emit 0x00
-		__emit 0x5f                 // pop edi
-		__emit 0x5e                 // pop esi
-		__emit 0xc2                 // ret 4
-		__emit 0x04
-		__emit 0x00
-	}
+    BfmeManagerBucket *bucket = m_bfmeFirst;
+
+    while (bucket)
+    {
+        typedef void (BfmeBucketRemoveThunk::*RemoveFn)(BfmeOwnedP *);
+        union { void *asVoid; RemoveFn asMember; } fnCast;
+        fnCast.asVoid = reinterpret_cast<void *>(j_0000b325);
+        (reinterpret_cast<BfmeBucketRemoveThunk *>(bucket)->*fnCast.asMember)(element);
+        bucket = bucket->m_bfmeNext;
+    }
+
+    bfmeNotify(*(void **)0x012ED668, element);
 }
