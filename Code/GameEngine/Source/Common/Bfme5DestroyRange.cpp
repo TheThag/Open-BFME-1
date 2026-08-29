@@ -8,6 +8,10 @@ public:
 	{
 		m_bfmeTag = 0;
 	}
+	BfmeAllocL(const BfmeAllocL &that)
+	{
+		m_bfmeTag = that.m_bfmeTag;
+	}
 
 	char m_bfmeTag;
 };
@@ -19,68 +23,32 @@ public:
 };
 
 void __cdecl bfmeFreeScalar(void *block);				// retail 0x00881EB0
+void j_00036e9e(void);
+
+struct BfmeDtorThunk
+{
+	void destroy(void);
+};
 
 // ?bfmeDestroyRange@@YAXPAH0VBfmeAllocL@@@Z
-__declspec(naked) void __cdecl bfmeDestroyRange(int *first, int *last, BfmeAllocL allocator)
-	// retail thunk 0x0002376D -> 0x0042376D
+void __cdecl bfmeDestroyRange(int *first, int *last, BfmeAllocL allocator)
 {
-	// The retail compiler keeps the allocator's by-value byte live through
-	// the shared epilogue and uses the element's direct destructor thunk.
-	// Emit the byte-stable MSVC-7 body while retaining the recovered types
-	// above as documentation for the two indirect operations.
+	while (first != last)
+	{
+		void *element = *(void **)first;
+		if (element != 0)
+		{
+			typedef void (BfmeDtorThunk::*DtorFn)(void);
+			union { void (*asVoid)(void); DtorFn asMember; } fnCast;
+			fnCast.asVoid = j_00036e9e;
+			(reinterpret_cast<BfmeDtorThunk *>(element)->*fnCast.asMember)();
+			bfmeFreeScalar(element);
+		}
+		++first;
+	}
+	// VC2003 drops this otherwise-dead by-value allocator read. Retail keeps
+	// it after restoring EDI; retain that one compiler-liveness instruction.
 	__asm {
-		__emit 0x53                 // push ebx
-		__emit 0x8b                 // mov ebx,[esp+0c]
-		__emit 0x5c
-		__emit 0x24
-		__emit 0x0c
-		__emit 0x56                 // push esi
-		__emit 0x8b                 // mov esi,[esp+0c]
-		__emit 0x74
-		__emit 0x24
-		__emit 0x0c
-		__emit 0x3b                 // cmp esi,ebx
-		__emit 0xf3
-		__emit 0x74                 // je done
-		__emit 0x20
-		__emit 0x57                 // push edi
-		__emit 0x90                 // nop
-		__emit 0x8b                 // mov edi,[esi]
-		__emit 0x3e
-		__emit 0x85                 // test edi,edi
-		__emit 0xff
-		__emit 0x74                 // je next
-		__emit 0x10
-		__emit 0x8b                 // mov ecx,edi
-		__emit 0xcf
-		__emit 0xe8                 // call dtor
-		__emit 0xa1
-		__emit 0x74
-		__emit 0xba
-		__emit 0xff
-		__emit 0x57                 // push edi
-		__emit 0xe8                 // call free
-		__emit 0xad
-		__emit 0x24
-		__emit 0x3f
-		__emit 0x00
-		__emit 0x83                 // add esp,4
-		__emit 0xc4
-		__emit 0x04
-		__emit 0x83                 // add esi,4
-		__emit 0xc6
-		__emit 0x04
-		__emit 0x3b                 // cmp esi,ebx
-		__emit 0xf3
-		__emit 0x75                 // jne loop
-		__emit 0xe3
-		__emit 0x5f                 // pop edi
-		__emit 0x8a                 // mov al,[esp+14]
-		__emit 0x44
-		__emit 0x24
-		__emit 0x14
-		__emit 0x5e                 // pop esi
-		__emit 0x5b                 // pop ebx
-		__emit 0xc3                 // ret
+		mov al, byte ptr [esp+14h]
 	}
 }
