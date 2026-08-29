@@ -23940,3 +23940,5 @@ dup_59eb90,0x0059EB90,"not AttackNugget: its constructor target is 0x0059EB00 no
 ?dup_00956ac0@@YAXXZ,0x00956AC0,gen-alias placeholder superseded by the real C++ identity ?Set_Position@OBBoxRenderObjClass@@UAEXABVVector3@@@Z
 ?dup_007d0b70@@YAXXZ,0x007D0B70,gen-alias placeholder superseded by the real C++ identity ?preRender@ScreenBWFilter@@UAE_NAA_NAAW4CustomScenePassModes@@@Z
 ?dup_007d0c50@@YAXXZ,0x007D0C50,gen-alias placeholder superseded by the real C++ identity ?preRender@ScreenBWFilterDOT3@@UAE_NAA_NAAW4CustomScenePassModes@@@Z
+??0GeometryInfo@@QAE@ABV0@@Z,0x003A6360,stale plain-POD claim superseded: retail GeometryInfo copy constructor is the 194-byte polymorphic body at 0x000FFD10; the old 24-byte body has no GeometryInfo vtable or STL members
+?d_000ffd10@@YAXXZ,0x000FFD10,gen-dump placeholder superseded by the real GeometryInfo copy constructor; byte-verified from Code/GameEngine/Source/Common/GeometryInfoCopyConstructor.cpp over the same 194-byte range
