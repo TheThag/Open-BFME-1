@@ -1,71 +1,96 @@
-// Set the Unicode payload for an APT variable and notify its listener.
-// The named-record map lives at WindowManager +0x44.
+// cl: /DNDEBUG /DWIN32 /MD /D_STLP_USE_STATIC_LIB
+// stlport
 
-class AsciiString;
-class UnicodeString;
+// Set the Unicode payload for an APT variable and notify its listener.
+// The named-record hash table lives at WindowManager +0x44.  Its 8-byte value
+// is the listener pointer followed by the mutable UnicodeString payload.
+
+#define _STLP_NO_EXCEPTIONS 1
+#include <hash_map>
+
+#include "../../../Libraries/Source/WWVegas/WWLib/string_base.h"
+
+// The retail UnicodeString default constructor is visible to this STLport
+// instantiation as a one-dword zeroing inline.  Keep that constructor inline
+// here; its copy/assignment/destructor remain the existing library bodies.
+class UnicodeString
+{
+public:
+	UnicodeString() : m_text( 0 ) {}
+	UnicodeString( const UnicodeString &other );
+	~UnicodeString();
+	UnicodeString &operator=( const UnicodeString &other );
+
+private:
+	wchar_t *m_text;
+};
+
+// The key is the upstream StringBase<char> wrapper used by the adjacent
+// hash-map instantiations.  Its copy constructor is inline, while destruction
+// is supplied by the retail AsciiString body.
+class AsciiString
+{
+public:
+	// A single StringBase<char> member preserves the one-word retail layout.
+	AsciiString( const AsciiString &other ) : m_string( other.m_string ) {}
+	~AsciiString();
+
+	StringBase<char> m_string;
+};
+
+inline bool operator==( const AsciiString &left, const AsciiString &right )
+{
+	return left.m_string == right.m_string;
+}
+
+namespace rts
+{
+	template <typename T> struct hash
+	{
+		unsigned int operator()( T value ) const;
+	};
+}
+
+struct AptTextRecord
+{
+	void *m_listener;
+	UnicodeString m_text;
+
+	AptTextRecord() : m_listener( 0 ), m_text() {}
+	// The retail temporary cleanup clears the listener dword before releasing
+	// its UnicodeString; the field is already dead at this point.
+	~AptTextRecord() { m_listener = 0; }
+};
+
+typedef _STL::hash_map<AsciiString, AptTextRecord, rts::hash<AsciiString> > AptTextMap;
+
+// retail 0x0046B490, reached through ILT 0x00041BDC.  The value-pair
+// constructor and destructor are the existing APT map helpers at 0x00467890
+// and 0x00467710; the table find/insert bodies are 0x0046A3A0/0x0046AC80.
+template AptTextRecord &AptTextMap::operator[]( const AsciiString & );
+
+class AptTextListener
+{
+public:
+	virtual void slot00();
+	virtual void setText( const UnicodeString &text );
+};
 
 class WindowManager
 {
 public:
-	void bfme_setAptText(const AsciiString &name, const UnicodeString &text);
+	void bfme_setAptText( const AsciiString &name, const UnicodeString &text );
 
 private:
 	char m_bfmeHead[0x44];
+	AptTextMap m_bfmeAptText;
 };
 
 // ?bfme_setAptText@WindowManager@@QAEXABVAsciiString@@ABVUnicodeString@@@Z
-__declspec(naked) void WindowManager::bfme_setAptText(const AsciiString &, const UnicodeString &)
-	// retail body 0x0046CBF0
+void WindowManager::bfme_setAptText( const AsciiString &name, const UnicodeString &text )
 {
-	__asm {
-		__emit 0x8b                 // eax = name
-		__emit 0x44
-		__emit 0x24
-		__emit 0x04
-		__emit 0x56                 // push esi
-		__emit 0x57                 // push edi
-		__emit 0x50                 // push name
-		__emit 0x83                 // ecx = this + 44
-		__emit 0xc1
-		__emit 0x44
-		__emit 0xe8                 // find or insert named record
-		__emit 0xdd
-		__emit 0x4f
-		__emit 0xbd
-		__emit 0xff
-		__emit 0x8b                 // text argument
-		__emit 0x4c
-		__emit 0x24
-		__emit 0x10
-		__emit 0x8b                 // esi = record
-		__emit 0xf0
-		__emit 0x8d                 // edi = record text
-		__emit 0x7e
-		__emit 0x04
-		__emit 0x51                 // push text
-		__emit 0x8b                 // ecx = record text
-		__emit 0xcf
-		__emit 0xe8                 // UnicodeString::set
-		__emit 0x20
-		__emit 0xb9
-		__emit 0x41
-		__emit 0x00
-		__emit 0x8b                 // listener
-		__emit 0x0e
-		__emit 0x85                 // test listener
-		__emit 0xc9
-		__emit 0x74                 // je done
-		__emit 0x06
-		__emit 0x8b                 // vtable
-		__emit 0x11
-		__emit 0x57                 // push text
-		__emit 0xff                 // call listener slot +04
-		__emit 0x52
-		__emit 0x04
-		__emit 0x5f                 // pop edi
-		__emit 0x5e                 // pop esi
-		__emit 0xc2                 // ret 8
-		__emit 0x08
-		__emit 0x00
-	}
+	AptTextRecord &record = m_bfmeAptText[ name ];
+	record.m_text = text;
+	if ( record.m_listener != 0 )
+		((AptTextListener *)record.m_listener)->setText( record.m_text );
 }
