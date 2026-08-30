@@ -1,4 +1,4 @@
-"""Numerical checks for the native tactical-camera Hor+ conversion."""
+"""Numerical checks for the tactical and ShellMap Hor+ conversion."""
 
 from math import atan, degrees, radians, tan
 from unittest import TestCase
@@ -30,6 +30,7 @@ TARGETS = (
     ("3440x1440", 3440, 1440),
     ("3840x1600", 3840, 1600),
     ("32:9", 3840, 1080),
+    ("odd display", 2719, 1137),
 )
 
 
@@ -46,6 +47,23 @@ class HorPlusFovTest(TestCase):
                 self.assertAlmostEqual(
                     current_half_height * display_scale, reference_half_height, places=7)
                 self.assertGreaterEqual(current_half_width * display_scale, current_half_width)
+
+    def test_shellmap_full_display_keeps_vertical_reference_and_expands_width(self):
+        """ShellMap uses the same camera with its view height equal to display height."""
+        reference_half_height = tan(REFERENCE_HORIZONTAL_FOV / 2.0) / REFERENCE_DISPLAY_ASPECT
+        reference_half_width = tan(REFERENCE_HORIZONTAL_FOV / 2.0)
+
+        for name, display_width, display_height in TARGETS:
+            with self.subTest(name=name):
+                display_aspect = display_width / display_height
+                native_half_width = tan(REFERENCE_HORIZONTAL_FOV / 2.0)
+                native_half_height = native_half_width / display_aspect
+                scale = display_aspect / REFERENCE_DISPLAY_ASPECT
+
+                self.assertAlmostEqual(native_half_height * scale, reference_half_height,
+                                       places=7)
+                if display_width * 3 >= display_height * 4:
+                    self.assertGreaterEqual(native_half_width * scale, reference_half_width)
 
     def test_hor_plus_preserves_default_tactical_vertical_fov(self):
         for name, display_width, display_height in TARGETS:

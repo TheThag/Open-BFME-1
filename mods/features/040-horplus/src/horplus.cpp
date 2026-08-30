@@ -32,7 +32,8 @@ enum {
 };
 
 // BFME globals confirmed by the reconstructed Display/ControlBar sources:
-// TheDisplay is 0x012F1270 and TheTacticalView is 0x012F1600. BFME's W3DView
+// TheDisplay is 0x012F1270 and TheTacticalView is 0x012F1600. The shell map
+// is loaded as GAME_SHELL but uses this same attached W3DView; BFME's W3DView
 // layout puts m_3DCamera at +0x104.
 // TheDisplay's getWidth/getHeight are vtable slots +0x2C/+0x30, as shown by
 // the matched setWidth assembly. The hooks below are all W3DView-local and

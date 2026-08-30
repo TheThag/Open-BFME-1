@@ -114,3 +114,10 @@ def test_horplus_sites_follow_retail_projection_writes():
     # The direct locked/scripted-camera transform path is the only global
     # CameraClass hook retained; its payload filters against TheTacticalView.
     assert pe.read(0x00931304, 5) == b"\x5e\xc2\x04\x00\xcc"
+
+
+def test_horplus_identity_filter_is_still_the_shellmap_camera_filter():
+    source = (ROOT / "mods/features/040-horplus/src/horplus.cpp").read_text()
+    assert "view != TheTacticalView" in source
+    assert "The shell map" in source
+    assert "field_pointer(view, VIEW_CAMERA) == camera" in source

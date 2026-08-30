@@ -1,4 +1,4 @@
-# 040-horplus — tactical-camera Hor+
+# 040-horplus — BFME 3D-world Hor+
 
 ## Status
 
@@ -11,8 +11,50 @@ PYTHONPATH=/tmp/capstone-py python3 tools/modbuild.py \
   --only 040-horplus -o build/mods/lotrbfme-040-horplus.exe
 ```
 
-The feature changes the BFME tactical 3D camera only. It is separate from
+The feature changes BFME's one attached tactical/world `W3DView`. That view
+also renders the 3D world used by the main-menu `ShellMap1.map`; there is no
+second shell-map camera in the retail path. It is separate from
 `041-cutscenefix`, which handles fullscreen movie rectangles.
+
+## ShellMap1.map path
+
+The main menu requests the shell map through the normal game-loading path:
+
+```text
+Shell::showShellMap(TRUE)
+  -> TheGlobalData->m_shellMapName ("Maps\\ShellMap1\\ShellMap1.map")
+  -> pendingFile + MSG_NEW_GAME(GAME_SHELL)
+  -> GameLogic::startNewGame()
+  -> loadMapINI() + TerrainLogic::loadMap(TheGlobalData->m_mapName)
+  -> the attached TheTacticalView / W3DView renders the map
+```
+
+`InGameUI::init` is the only reconstructed view-creation path: it assigns
+`createView()` to `TheTacticalView`, initializes it, and attaches it to
+`TheDisplay`. `Display::drawViews` iterates that attached view, and
+`W3DView::draw` renders its `m_3DCamera` through the shared 3D scene before
+the menu UI is drawn. `W3DMainMenu` callbacks are 2D menu callbacks, not a
+separate 3D renderer.
+
+The shell map's `SETUP_CAMERA` actions also operate on `TheTacticalView`.
+When `GameLogic` enters `GAME_SHELL`, `HideControlBar()` sets that same view
+to the full display height. Consequently the shell camera reaches the same
+`setHeight`, `setWidth`, camera-transform, and direct `CameraClass` transform
+paths as gameplay.
+
+This was checked against the retail binary as well as source: the
+`InGameUI::init` body creates the view through its vtable, stores it at the
+retail `TheTacticalView` global, and attaches it to `TheDisplay`; no second
+shell view assignment exists. The archive contains the shell map asset, but
+the asset is not part of this repository.
+
+The important diagnosis is therefore not a blocked shell identity check.
+The existing `TheTacticalView` identity check is the correct shell identity.
+If a build shows unchanged shell-map framing, it is running without the
+development payload: `040-horplus` is deliberately in `UNSHIPPED`, and
+`--dist` excludes it. With 040 installed, the existing four post-operation
+hooks cover both gameplay and `GAME_SHELL`; adding a global camera hook or a
+new 042 feature would broaden the patch without fixing a missing path.
 
 ## What the retail camera does
 
@@ -111,16 +153,20 @@ change:
 * the existing `041-cutscenefix` behavior.
 
 The `TheTacticalView` filter is important because BFME has additional views
-and camera-transform callers. A global `CameraClass` transform patch would
-alter cameras outside the tactical world view.
+and camera-transform callers. It includes the shell map because the shell map
+uses that exact singleton, while excluding every other view/camera. A global
+`CameraClass` transform patch would alter cameras outside the tactical and
+shell world view.
 
 ## Verification
 
 The feature's focused tests cover the native 4:3 case, wider display ratios,
-tactical subview FOV behavior, and the increase in horizontal view. The mod
-test also verifies the retail bytes around all four sites, the fixed
-`Set_View_Plane` call address, the generated cave shims, exact stolen-prologue
-replay, and the tactical-camera identity filter.
+tactical subview FOV behavior, the shell map's full-display view, and the
+increase in horizontal view. The shell-path test checks the map-selection,
+single-view, `GAME_SHELL`, and retail-binary evidence. The mod test also
+verifies the retail bytes around all four sites, the fixed `Set_View_Plane`
+call address, the generated cave shims, exact stolen-prologue replay, and the
+tactical/shell-camera identity filter.
 
 The normal MSVC 7.1 `/NODEFAULTLIB` build emits a small cave payload with no
 CRT/runtime dependency. The feature is intentionally not promoted to
@@ -131,6 +177,7 @@ Relevant source and tests:
 * `src/horplus.cpp` — payload and BFME field/vtable evidence
 * `tools/tests/test_horplus_fov.py` — projection math checks
 * `tools/tests/test_horplus_mod.py` — cave, hook, and retail-byte checks
+* `tools/tests/test_horplus_shellmap.py` — ShellMap lifecycle and identity checks
 * `Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DViewSetWidthBfmeLayout.cpp` — readable retail operation order
 
 The repository has no game-runtime visual harness in this checkout, so the
