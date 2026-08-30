@@ -83,6 +83,12 @@ TARGET_HORPLUS_WIDTH_TAIL = 0x0073DDF8
 TARGET_HORPLUS_CAMERA_TAIL = 0x00742609
 TARGET_HORPLUS_DIRECT_TRANSFORM_TAIL = 0x00931304
 
+# 041-cutscenefix. The retail global movie renderer is the W3DDisplay virtual
+# helper at runtime VA 0x00AEE0C0 (RVA 0x006EE0C0). Its mode-1 entry is called
+# by Display's fullscreen movie update path at runtime VA 0x0080F968. Modes 0
+# and 3 serve other stream-service paths and are filtered in the payload.
+TARGET_CUTSCENEFIX_MOVIE = 0x006EE0C0
+
 # No CRT startup, no exceptions, no RTTI, no runtime library at all. /GS is off
 # by default in 7.1 and it rejects /GS-, so there is nothing to turn off there.
 # Warnings are errors: this build discards compiler output on success, so a
@@ -352,6 +358,14 @@ def build_horplus(pe, feature_dir, probe=False):
     ), probe=probe)
 
 
+def build_cutscenefix(pe, feature_dir, probe=False):
+    return build_feature(pe, feature_dir / "src/cutscenefix.cpp",
+                         "cutscenefix_render_movie", (
+                             (TARGET_CUTSCENEFIX_MOVIE,
+                              "cutscenefix_render_movie", ("ecx", "stack:0")),
+                         ), probe=probe)
+
+
 FEATURES = {"020-gameresult": build_gameresult,
             # Promoted once its spike came back green: twelve rig matches, no
             # retail match overlapping any fixed one, and the logic rate
@@ -379,6 +393,8 @@ UNSHIPPED = {
                        "both seats, match dead at 127, against zero in every other arm. "
                        "See the header of its source before reviving it"),
     "040-horplus": (build_horplus, "a development camera modernization; build it to its own path"),
+    "041-cutscenefix": (build_cutscenefix,
+                        "a development fullscreen movie contain fix; build it to its own path"),
 }
 
 
