@@ -4498,6 +4498,7 @@ name,address,notes
 ??1Gen_dtor_0014f780@@UAE@XZ,0x0001AD66,gen-dtor class destructor
 ??1Gen_dtor_0014fbd0@@UAE@XZ,0x0003E6CB,gen-dtor class destructor
 ??1Gen_dtor_001500d0@@UAE@XZ,0x0000CA68,gen-dtor class destructor
+??1Rva0000CA68PathDtor@@QAE@XZ,0x0000CA68,retail destroyPath calls the ILT at 0x0000CA68; its body 0x003FEB80 is the matched Path::~Path cleanup
 ??1Gen_dtor_00152690@@UAE@XZ,0x0000A132,gen-dtor class destructor
 ??1Gen_dtor_0015bf20@@UAE@XZ,0x0002B93B,gen-dtor class destructor
 ??1Gen_dtor_0015bf50@@UAE@XZ,0x0001E7B8,gen-dtor class destructor

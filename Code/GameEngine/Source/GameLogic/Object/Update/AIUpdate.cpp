@@ -108,6 +108,154 @@ struct BFMEApproachPathFields
 	Bool m_isInUpdate;
 };
 
+struct BFMEPathDestroyFields
+{
+	char m_unreconstructed_000[0x140];
+	struct Rva0000CA68PathDtor *m_path;
+	char m_unreconstructed_144[0x31E - 0x144];
+	unsigned char m_waitingForPath;
+	unsigned char m_goalType;
+	char m_unreconstructed_320[0x326 - 0x320];
+	unsigned char m_isAttackPath;
+};
+
+// The retail call is the address-derived destructor thunk already pinned at
+// 0x0000CA68; explicit destruction keeps its direct receiver call shape.
+struct Rva0000CA68PathDtor
+{
+	~Rva0000CA68PathDtor();
+};
+
+// The BFME goal-none operation is virtual slot 122 (0x1e8).  A slot-shaped
+// facade keeps the tail dispatch virtual without depending on the shorter
+// Zero Hour class layout.
+struct BFMEGoalNoneVTable
+{
+	virtual void slot000( void ) = 0;
+	virtual void slot001( void ) = 0;
+	virtual void slot002( void ) = 0;
+	virtual void slot003( void ) = 0;
+	virtual void slot004( void ) = 0;
+	virtual void slot005( void ) = 0;
+	virtual void slot006( void ) = 0;
+	virtual void slot007( void ) = 0;
+	virtual void slot008( void ) = 0;
+	virtual void slot009( void ) = 0;
+	virtual void slot010( void ) = 0;
+	virtual void slot011( void ) = 0;
+	virtual void slot012( void ) = 0;
+	virtual void slot013( void ) = 0;
+	virtual void slot014( void ) = 0;
+	virtual void slot015( void ) = 0;
+	virtual void slot016( void ) = 0;
+	virtual void slot017( void ) = 0;
+	virtual void slot018( void ) = 0;
+	virtual void slot019( void ) = 0;
+	virtual void slot020( void ) = 0;
+	virtual void slot021( void ) = 0;
+	virtual void slot022( void ) = 0;
+	virtual void slot023( void ) = 0;
+	virtual void slot024( void ) = 0;
+	virtual void slot025( void ) = 0;
+	virtual void slot026( void ) = 0;
+	virtual void slot027( void ) = 0;
+	virtual void slot028( void ) = 0;
+	virtual void slot029( void ) = 0;
+	virtual void slot030( void ) = 0;
+	virtual void slot031( void ) = 0;
+	virtual void slot032( void ) = 0;
+	virtual void slot033( void ) = 0;
+	virtual void slot034( void ) = 0;
+	virtual void slot035( void ) = 0;
+	virtual void slot036( void ) = 0;
+	virtual void slot037( void ) = 0;
+	virtual void slot038( void ) = 0;
+	virtual void slot039( void ) = 0;
+	virtual void slot040( void ) = 0;
+	virtual void slot041( void ) = 0;
+	virtual void slot042( void ) = 0;
+	virtual void slot043( void ) = 0;
+	virtual void slot044( void ) = 0;
+	virtual void slot045( void ) = 0;
+	virtual void slot046( void ) = 0;
+	virtual void slot047( void ) = 0;
+	virtual void slot048( void ) = 0;
+	virtual void slot049( void ) = 0;
+	virtual void slot050( void ) = 0;
+	virtual void slot051( void ) = 0;
+	virtual void slot052( void ) = 0;
+	virtual void slot053( void ) = 0;
+	virtual void slot054( void ) = 0;
+	virtual void slot055( void ) = 0;
+	virtual void slot056( void ) = 0;
+	virtual void slot057( void ) = 0;
+	virtual void slot058( void ) = 0;
+	virtual void slot059( void ) = 0;
+	virtual void slot060( void ) = 0;
+	virtual void slot061( void ) = 0;
+	virtual void slot062( void ) = 0;
+	virtual void slot063( void ) = 0;
+	virtual void slot064( void ) = 0;
+	virtual void slot065( void ) = 0;
+	virtual void slot066( void ) = 0;
+	virtual void slot067( void ) = 0;
+	virtual void slot068( void ) = 0;
+	virtual void slot069( void ) = 0;
+	virtual void slot070( void ) = 0;
+	virtual void slot071( void ) = 0;
+	virtual void slot072( void ) = 0;
+	virtual void slot073( void ) = 0;
+	virtual void slot074( void ) = 0;
+	virtual void slot075( void ) = 0;
+	virtual void slot076( void ) = 0;
+	virtual void slot077( void ) = 0;
+	virtual void slot078( void ) = 0;
+	virtual void slot079( void ) = 0;
+	virtual void slot080( void ) = 0;
+	virtual void slot081( void ) = 0;
+	virtual void slot082( void ) = 0;
+	virtual void slot083( void ) = 0;
+	virtual void slot084( void ) = 0;
+	virtual void slot085( void ) = 0;
+	virtual void slot086( void ) = 0;
+	virtual void slot087( void ) = 0;
+	virtual void slot088( void ) = 0;
+	virtual void slot089( void ) = 0;
+	virtual void slot090( void ) = 0;
+	virtual void slot091( void ) = 0;
+	virtual void slot092( void ) = 0;
+	virtual void slot093( void ) = 0;
+	virtual void slot094( void ) = 0;
+	virtual void slot095( void ) = 0;
+	virtual void slot096( void ) = 0;
+	virtual void slot097( void ) = 0;
+	virtual void slot098( void ) = 0;
+	virtual void slot099( void ) = 0;
+	virtual void slot100( void ) = 0;
+	virtual void slot101( void ) = 0;
+	virtual void slot102( void ) = 0;
+	virtual void slot103( void ) = 0;
+	virtual void slot104( void ) = 0;
+	virtual void slot105( void ) = 0;
+	virtual void slot106( void ) = 0;
+	virtual void slot107( void ) = 0;
+	virtual void slot108( void ) = 0;
+	virtual void slot109( void ) = 0;
+	virtual void slot110( void ) = 0;
+	virtual void slot111( void ) = 0;
+	virtual void slot112( void ) = 0;
+	virtual void slot113( void ) = 0;
+	virtual void slot114( void ) = 0;
+	virtual void slot115( void ) = 0;
+	virtual void slot116( void ) = 0;
+	virtual void slot117( void ) = 0;
+	virtual void slot118( void ) = 0;
+	virtual void slot119( void ) = 0;
+	virtual void slot120( void ) = 0;
+	virtual void slot121( void ) = 0;
+	virtual void goalNone( void ) = 0;
+};
+
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -2256,18 +2404,22 @@ Bool AIUpdateInterface::computeAttackPath( PathfindServicesInterface *pathServic
 /**
  * Destroy the current path, and set it to NULL
  */
-// ?destroyPath@AIUpdateInterface@@ present-unmatched
 void AIUpdateInterface::destroyPath( void )
 {
-	// destroy previous path
-	if (m_path)
-		m_path->deleteInstance();
+	BFMEPathDestroyFields *retail = reinterpret_cast<BFMEPathDestroyFields *>( this );
+	Rva0000CA68PathDtor *path = retail->m_path;
+	if (path)
+	{
+		path->~Rva0000CA68PathDtor();
+		::operator delete(path);
+	}
 
-	m_path = NULL;
-	m_waitingForPath = FALSE; // we no longer need it.
-	//CRCDEBUG_LOG(("AIUpdateInterface::destroyPath() - m_isAttackPath = FALSE for object %d\n", getObject()->getID()));
-	m_isAttackPath = FALSE;
-	setLocomotorGoalNone();
+	retail->m_path = NULL;
+	retail->m_waitingForPath = FALSE;
+	retail->m_isAttackPath = FALSE;
+	retail->m_goalType = 0;
+
+	(reinterpret_cast<BFMEGoalNoneVTable *>( this ))->goalNone();
 }
 
 //-------------------------------------------------------------------------------------------------
