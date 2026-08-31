@@ -84,10 +84,11 @@ TARGET_HORPLUS_CAMERA_TAIL = 0x00742609
 TARGET_HORPLUS_DIRECT_TRANSFORM_TAIL = 0x00931304
 
 # 041-cutscenefix. The retail global movie renderer is the W3DDisplay virtual
-# helper at runtime VA 0x00AEE0C0 (RVA 0x006EE0C0). Its mode-1 entry is called
-# by Display's fullscreen movie update path at runtime VA 0x0080F968. Modes 0
-# and 3 serve other stream-service paths and are filtered in the payload.
-TARGET_CUTSCENEFIX_MOVIE = 0x006EE0C0
+# helper at runtime VA 0x00AEE0C0 (RVA 0x006EE0C0). Its fullscreen mode-1
+# branch reaches this pre-draw site at runtime VA 0x00AEE185. ESI is the
+# display object there and the mode remains at [ESP+0x2C]; the six-byte load at
+# the site is replayed by the cave after the payload updates the final rect.
+TARGET_CUTSCENEFIX_MOVIE = 0x006EE185
 
 # No CRT startup, no exceptions, no RTTI, no runtime library at all. /GS is off
 # by default in 7.1 and it rejects /GS-, so there is nothing to turn off there.
@@ -362,7 +363,7 @@ def build_cutscenefix(pe, feature_dir, probe=False):
     return build_feature(pe, feature_dir / "src/cutscenefix.cpp",
                          "cutscenefix_render_movie", (
                              (TARGET_CUTSCENEFIX_MOVIE,
-                              "cutscenefix_render_movie", ("ecx", "stack:0")),
+                              "cutscenefix_render_movie", ("esi", "stackoff:0x2c")),
                          ), probe=probe)
 
 

@@ -176,6 +176,22 @@ def test_a_stack_argument_reaches_the_target_s_own_argument(pe):
             moved -= 4
 
 
+def test_a_current_stack_offset_reaches_an_interior_hook_frame(pe):
+    """An interior hook needs the target's current ESP, not its entry argument
+    numbering.  The cutscene hook reads mode at [ESP+0x2C] after the retail
+    prologue has established that frame."""
+    ins = _disasm(pe, pe.alloc(pe.shim(
+        0x11223344, pe.image_base + pe.next_rva(),
+        args=("esi", "stackoff:0x2c"))), 32)
+    memory_push = next(i for i in ins
+                       if i.mnemonic == "push" and "esp" in i.op_str)
+    assert bytes(memory_push.bytes) == bytes.fromhex("ff742450")
+    # pushad/pushfd move the shim ESP 36 bytes below the target ESP.  No
+    # earlier cdecl argument push precedes this one because it is the last
+    # declaration-order argument.
+    assert -36 + 0x50 == 0x2C
+
+
 def test_the_shim_pops_exactly_what_it_pushed(pe):
     """cdecl leaves the cleanup to the caller, and the caller is this shim. One
     dword out and the stolen prologue replays on a shifted stack."""
@@ -195,6 +211,10 @@ def test_an_argument_the_shim_cannot_emit_is_refused(pe):
         pe.shim(0x11223344, 0x10000000, args=("rcx",))
     with pytest.raises(CaveError, match="out of one-byte reach"):
         pe.shim(0x11223344, 0x10000000, args=("stack:64",))
+    with pytest.raises(CaveError, match="negative"):
+        pe.shim(0x11223344, 0x10000000, args=("stackoff:-1",))
+    with pytest.raises(CaveError, match="out of one-byte reach"):
+        pe.shim(0x11223344, 0x10000000, args=("stackoff:0x60",))
 
 
 def test_a_shim_built_for_the_wrong_address_is_refused(pe):

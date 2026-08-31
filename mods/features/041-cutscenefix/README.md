@@ -44,9 +44,10 @@ this global mode-1 call.
 
 ## Fix
 
-At the entry of the mode-1 helper, `cutscenefix` gets the live source and
-display dimensions, computes the largest centered integer rectangle that fits
-without cropping, and writes those four proven destination fields. It then
+At the verified pre-draw site inside the mode-1 helper, `cutscenefix` gets the
+live source and display dimensions, computes the largest centered integer
+rectangle that fits without cropping, and writes those four proven destination
+fields. It then
 temporarily disables the retail image clip flag, queues an opaque black
 full-display rectangle through the matched `drawFillRect` slot at `+0xC0`,
 flushes it through the matched Render2D slot at `+0xDC`, and restores the clip
@@ -57,6 +58,10 @@ The fit is calculated from the dimensions at runtime. No display or movie
 aspect ratio is hardcoded. The integer rounding can make one edge differ by at
 most a pixel, while both destination dimensions remain inside the framebuffer.
 
-The hook target is RVA `0x006EE0C0` (runtime VA `0x00AEE0C0`), not the stale
-unmatched `drawVideoBuffer` ledger row or the old global renderer-transform
-experiment.
+The hook target is RVA `0x006EE185` (runtime VA `0x00AEE185`). It is the six-byte
+`mov edx,[esi+0x104]` immediately before the retail helper loads the remaining
+destination coordinates and calls the global movie image path. The displaced
+instruction is replayed after the payload, so the original image call consumes
+the corrected fields. The helper entry is RVA `0x006EE0C0` (runtime VA
+`0x00AEE0C0`), but it is not the patch site: an entry hook is too early because
+the retail update path recalculates the cover rectangle before this draw.

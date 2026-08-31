@@ -237,6 +237,10 @@ class PE:
         the only way to reach one: the shim gets a register, and a thiscall's
         explicit arguments are on the stack. It is meaningful ONLY when the hook
         sits at the function's entry, before the body has pushed anything.
+        "stackoff:N" hands over the dword at byte offset N from the hooked
+        function's current ESP. This is for an interior hook where the target
+        has already established its frame; unlike stack:N, N includes neither
+        the return address nor an argument index.
 
         Generated rather than written: this is the whole reason a feature can be
         one .cpp file, and hand-maintaining it per feature is how the two blobs
@@ -255,6 +259,17 @@ class PE:
                 disp = SAVED_BYTES + 4 * pushed + 4 + 4 * index
                 if disp > 0x7F:
                     raise CaveError(f"stack argument {index} is out of one-byte reach")
+                body += bytes([0xFF, 0x74, 0x24, disp])   # push dword ptr [esp+disp]
+            elif name.startswith("stackoff:"):
+                offset = int(name[len("stackoff:"):], 0)
+                # The requested offset is relative to the target's ESP at the
+                # hook. pushad/pushfd and earlier shim argument pushes are below
+                # that frame when this memory operand executes.
+                if offset < 0:
+                    raise CaveError(f"stack offset {offset} is negative")
+                disp = SAVED_BYTES + 4 * pushed + offset
+                if disp > 0x7F:
+                    raise CaveError(f"stack offset {offset} is out of one-byte reach")
                 body += bytes([0xFF, 0x74, 0x24, disp])   # push dword ptr [esp+disp]
             else:
                 raise CaveError(f"unknown shim argument {name!r}")

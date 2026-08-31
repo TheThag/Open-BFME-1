@@ -1,10 +1,10 @@
 // 041-cutscenefix — aspect-preserving presentation for global movies.
 //
-// This payload runs at the entry of BFME's retail W3DDisplay movie-render
-// helper.  The hook is deliberately filtered to its mode-1 call: the global
-// Display movie path calls the helper with 1, while the other stream-service
-// paths use 0 or 3.  Window/cameo and load-screen movies do not call this
-// helper with the global Display object.
+// This payload runs immediately before BFME's retail W3DDisplay global movie
+// image call.  The hook is deliberately filtered to its mode-1 call: the
+// global Display movie path calls the helper with 1, while the other
+// stream-service paths use 0 or 3.  Window/cameo and load-screen movies do not
+// call this helper with the global Display object.
 
 typedef int Int;
 typedef unsigned int UnsignedInt;
@@ -162,9 +162,10 @@ static void set_movie_rect(void *display, const MovieRect &rect)
 	*read_real(display, MOVIE_BOTTOM) = (Real)(rect.top + rect.height);
 }
 
-// RVA 0x006EE0C0 / runtime VA 0x00AEE0C0.  The retail body returns with
-// ret 4, so its entry argument is the mode dword copied by cave.py's
-// stack:0 shim.
+// The hook is RVA 0x006EE185 / runtime VA 0x00AEE185, inside the retail helper
+// whose entry is RVA 0x006EE0C0.  At this point ESI is the display object and
+// the helper's mode is still at [ESP+0x2C].  cave.py's stackoff shim copies it
+// without relying on the helper's entry frame.
 extern "C" __declspec(dllexport)
 void __cdecl cutscenefix_render_movie(void *display, Int mode)
 {
